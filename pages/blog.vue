@@ -1,36 +1,6 @@
 <template>
   <div class="container">
-    <div>
-      <img src="/icon.png" />
-      <h1 class="title">
-        Chronicles Of Hot Dog
-      </h1>
-      <div class="links">
-        <a
-          href="https://game.cohd.cf/"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="button--green"
-        >
-          Play Now
-        </a>
-        <a
-          href="https://companion.cohd.cf"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="button--green"
-        >
-          Mobile Companion
-        </a>
-        <br />
-        <nuxt-link to="/episodes" class="button--grey">
-          View Episodes
-        </nuxt-link>
-        <nuxt-link to="/blog" class="button--grey">
-          Blog
-        </nuxt-link>
-      </div>
-    </div>
+
   </div>
 </template>
 
