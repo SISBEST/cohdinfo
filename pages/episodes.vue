@@ -1,15 +1,22 @@
 <template>
-  <div class="container">
-
+  <div>
+    <img src="/icon.png" />
+    <h1>Episodes</h1>
+    <article v-for="(article, index) in articles" :key="`ep-${index}`">
+      <hr />
+      <h2>{{ article.title }}</h2>
+      <h3>{{ article.description }}</h3>
+      <p>{{ article.body }}</p>
+    </article>
+    <hr />
   </div>
 </template>
 
 <script>
 export default {
-  head () {
-    return {
-      script: [{ src: 'https://identity.netlify.com/v1/netlify-identity-widget.js' }]
-    }
+  async asyncData ({ $content, params }) {
+    const articles = await $content('episodes', params.slug).fetch()
+    return { articles }
   }
 }
 </script>
@@ -20,6 +27,7 @@ export default {
 * {
   color: white;
   font-family: 'Roboto Mono';
+  padding: 3px;
 }
 
 body {

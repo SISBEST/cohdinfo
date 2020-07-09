@@ -1,20 +1,45 @@
 <template>
-  <div class="container">
-
+  <div>
+    <img src="/icon.png" />
+    <h1>Blog</h1>
+    <article v-for="(article, index) in articles" :key="`ep-${index}`">
+      <hr />
+      <h2>{{ article.title }}</h2>
+      <details>
+        <summary>
+          {{ article.description }}
+        </summary>
+        {{ article.body }}
+      </details>
+      <small>{{ article.date }}</small>
+    </article>
+    <hr />
   </div>
 </template>
 
 <script>
 export default {
-  head () {
-    return {
-      script: [{ src: 'https://identity.netlify.com/v1/netlify-identity-widget.js' }]
-    }
+  async asyncData ({ $content, params }) {
+    const articles = await $content('blog', params.slug).fetch()
+    return { articles }
   }
 }
 </script>
 
 <style>
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap');
+
+* {
+  color: white;
+  font-family: 'Roboto Mono';
+  padding: 3px;
+}
+
+body {
+  background-color: #c60c30;
+  color: white;
+}
+
 .container {
   margin: 0 auto;
   min-height: 100vh;
@@ -22,24 +47,6 @@ export default {
   justify-content: center;
   align-items: center;
   text-align: center;
-}
-
-.title {
-  font-family:
-    'Quicksand',
-    'Source Sans Pro',
-    -apple-system,
-    BlinkMacSystemFont,
-    'Segoe UI',
-    Roboto,
-    'Helvetica Neue',
-    Arial,
-    sans-serif;
-  display: block;
-  font-weight: 300;
-  font-size: 100px;
-  color: #35495e;
-  letter-spacing: 1px;
 }
 
 .subtitle {

@@ -2,7 +2,7 @@
   <div class="container">
     <div>
       <img src="/icon.png" />
-      <h1 class="title">
+      <h1>
         Chronicles Of Hot Dog
       </h1>
       <div class="links">
