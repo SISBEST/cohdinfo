@@ -1,6 +1,7 @@
 {
   "name": "cohdinfo",
   "version": "1.0.0",
+  "description": "A brand new game from Pig Stuf Comix!",
   "private": true,
   "scripts": {
     "dev": "nuxt",
